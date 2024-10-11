@@ -55,14 +55,14 @@ def main(bucket, measurement, start, stop):
 
     # define the timespan
     start_time = start#"1970-01-01T00:00:00.000Z"  # oldes possible timestamp (Unix-Epoch)
-    stop_time = stop #"2024-10-09T00:00:00.000Z"  # end ts you want (sample)
+    stop_time = stop #"2024-10-07T00:00:00.000Z"  # end ts you want (sample)
 
     # delete specific measurement
     delete_measurement(client, influxdb_bucket, influxdb_org, measurement, start_time, stop_time, logger)
 
     # close InfluxDB Client
     client.close()
-
+#
 
 # Python entrypoint
 if __name__ == "__main__":
@@ -73,6 +73,6 @@ if __name__ == "__main__":
     # pass measurment as arg
     bucket_name = sys.argv[1]
     measurement_name = sys.argv[2]
-    start_time = sys.argv[2]
-    stop_time = sys.argv[2]
+    start_time = sys.argv[3]
+    stop_time = sys.argv[4]
     main(bucket_name, measurement_name, start_time, stop_time)
